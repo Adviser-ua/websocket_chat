@@ -73,7 +73,7 @@ class Client:
 class IndexHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.render("index.html")
+        self.render("templates\\client.html")
 
 
 class WSHandler(tornado.websocket.WebSocketHandler):
