@@ -74,11 +74,11 @@
     <h1>WebSockets Hello World</h1>
     <div id="connection_details">
       <label for="host">host:</label>
-      <input type="text" id="host" value="localhost" style="background:#ff0000;"/><br />
+      <input type="text" id="host" value="{{ host }}" style="background:#ff0000;"/><br />
       <label for="port">port:</label>
-      <input type="text" id="port" value="80" style="background:#ff0000;"/><br />
+      <input type="text" id="port" value="{{ port }}" style="background:#ff0000;"/><br />
       <label for="uri">uri:</label>
-      <input type="text" id="uri" value="/ws" style="background:#ff0000;"/><br />
+      <input type="text" id="uri" value="{{ uri }}" style="background:#ff0000;"/><br />
       <input type="submit" id="open" value="open" />
     </div>
     <div id="message_details">

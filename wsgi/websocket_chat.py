@@ -2,9 +2,9 @@
 # script create by Konstantyn Davidenko
 # mail: kostya_ya@it-transit.com
 #
-
+# __version__ == '0.1.0'
 """
-specification
+server for fast search anonimous web chat
 """
 import tornado.ioloop
 import tornado.web
@@ -12,6 +12,7 @@ import tornado.websocket
 from tornado.websocket import WebSocketClosedError
 import json
 from tornado.options import define, options, parse_command_line
+import os
 
 
 define("port", default=80, help="run on the given port", type=int)
@@ -70,15 +71,36 @@ class Client:
         self.language = language
 
 
+# noinspection PyAbstractClass
 class IndexHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.render("templates\\client.html")
+        try:
+            host = os.environ['OPENSHIFT_APP_DNS']
+            port = options.port
+            uri = '/ws'
+            self.render("client.html", **{'host': host, 'port': port, 'uri': uri})
+        except:
+            host = '0.0.0.0'
+            port = options.port
+            uri = '/ws'
+            self.render("templates/client.html", **{'host': host, 'port': port, 'uri': uri})
+
 
 class IndexHandlerTest(tornado.web.RequestHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.render("templates\\test.html")
+        try:
+            host = os.environ['OPENSHIFT_APP_DNS']
+            # port = os.environ['OPENSHIFT_PYTHON_PORT']
+            port = options.port
+            uri = '/ws'
+            self.render("test.html", **{'host': host, 'port': port, 'uri': uri})
+        except:
+            host = '0.0.0.0'
+            uri = '/ws'
+            port = options.port
+            self.render("templates/test.html", **{'host': host, 'port': port, 'uri': uri})
 
 
 class WSHandler(tornado.websocket.WebSocketHandler):
@@ -88,11 +110,13 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
     def open(self):
         Static.connections.append(self)
-        print('connected')
 
     def on_message(self, message):
-        data = self.serialize_json(message)
-        if data.get('message').lower() == 'init':
+        data = self.__serialize_json__(message)
+        if not data:
+            data = {'message': 'invalid data', 'data': message}
+            self.__send_message__(data)
+        elif data.get('message').lower() == 'init':
             client = self.__new_client__(data)
             self.client = client
             pair = self.__find_pair__()
@@ -111,7 +135,8 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         else:
             self.__send_message__(data)
 
-    def serialize_json(self, json_data):
+    @staticmethod
+    def __serialize_json__(json_data):
         try:
             return json.loads(json_data)
         except Exception as e:
@@ -121,7 +146,6 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         client = Client(client_id=Static.client_id, sex=json_data.get('sex'), looking_sex=json_data.get('looking_sex'), language=json_data.get('language'), conn=self)
         Static.client_id += 1
         return client
-
 
     def __send_message__(self, data):
         if not data.get('connected'):
@@ -134,7 +158,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
                 print('socket closed')
 
     def __get_online__(self):
-        data = {}
+        data = dict()
         data['online'] = len(Static.connections)
         self.__send_message__(data)
 
@@ -155,7 +179,6 @@ class WSHandler(tornado.websocket.WebSocketHandler):
     def on_close(self):
         Static.connections.remove(self)
         self.__leave_room__()
-        print('connection closed')
 
 handlers = [
     (r'/', IndexHandler),

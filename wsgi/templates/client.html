@@ -18,10 +18,11 @@
 					
 					<div id='br'>
 						<br>
-						</div><div class="btn-group" role="group" aria-label="Basic example">
-						<button type="button" id="boy1"class="btn btn-secondary"><div id="sexlang1">Мужской</div></button>
-						<button type="button" id="girl1" class="btn btn-secondary"><div id="sexlang2">Женский</div></button>
-						
+						<div id="sex1">
+							</div><div class="btn-group" role="group" aria-label="Basic example">
+							<button type="button" id="boy1"class="btn btn-secondary"><div id="sexlang1">Мужской</div></button>
+							<button type="button" id="girl1" class="btn btn-secondary"><div id="sexlang2">Женский</div></button>
+						</div>
 						<button type="button" id="russ"class="btn btn-secondary">Русский</button>
 						<button type="button" id="eng" class="btn btn-secondary">English</button>
 						
@@ -34,21 +35,22 @@
 						
 						<button type="button" id="boy2"class="btn btn-secondary"><div id="sexlang1">Мужской</div></button>
 						<button type="button" id="girl2" class="btn btn-secondary"><div id="sexlang2">Женский</div></button>
+						<button type="button" id="searching" class="btn btn-secondary"><div>Начать поиск</div></button>
 					</div><br><br>
 					
 					
 				</div>
 				<div data-spy="scroll" data-target="#output" id="output"></div>
 				<nav class="navbar navbar-fixed-bottom navbar-light bg-faded">
-					<a class="navbar-brand" href="#">Навигация</a>
+					<a id="nav"class="navbar-brand" href="#">Навигация</a>
 					<ul class="nav navbar-nav">
 						<li class="nav-item active">
-							<a class="nav-link">Пользователей онлайн: <span id='users_amount'>0</span> <span class="sr-only">(current)</span></a>
+							<a class="nav-link"><span id="online">Пользователей онлайн: </span><span id='users_amount'>0</span> <span class="sr-only">(current)</span></a>
 						</li>
 					</ul>
 					
 					<div class="form-inline navbar-form">
-						<input type="text" class="form-control" placeholder="Сообщение.." id="data" size="80"/>
+						<input type="text" class="form-control" placeholder="Сообщение.."id="data" size="80"/>
 						<button type="button" id="sendtext" class="btn btn-primary-outline">Отправить</button>
 						
 					</div>
@@ -69,7 +71,6 @@
 				if (!("WebSocket" in window)) {
 					alert("Ваш браузер не поддерживает чат");
 					}else{
-					setup();
 				}
 				
 				
@@ -77,57 +78,89 @@
 					
 					
 					
-					$('#text').text('Выберите свой пол.');
+					$('#text').text('');
 					$('#output').hide(0);
 					id = 0
 					$('#girl2').hide(0);
 					$('#boy2').hide(0);
-					$('output').scrollspy({ target: '#output' })
+					$('#boy1').hide(0);
+					$('#girl1').hide(0);
 					
 					
 				});
 				
+				
+				$(document).on('click', '#eng', function(){
+					var language = '{"select":"Select sex","sex1":"Male", "sex2":"Female", "one" : "You have chosen the male sex. Choose a sex speaker.", "two" : "You have chosen a female. Choose a floor speaker.", "start" : "Searching companion", "online": "Online:", "nav": "Chat", "send": "Send", "data": "Message..."}';
+					window.lang = JSON.parse(language);
+					$('#text').text(lang.select);
+					$('#girl1').show(0);
+					$('#boy1').show(0);
+					$('#eng').hide(0);
+					$('#russ').hide(0);
+					
+					$('#boy1').text(lang.sex1);
+					$('#nav').text(lang.nav);
+					$('#data').text(lang.data);
+					$('#sendtext').text(lang.send);
+					$('#online').text(lang.online);
+					$('#boy2').text(lang.sex1);
+					$('#girl1').text(lang.sex2);
+					$('#girl2').text(lang.sex2);
+				});  
+				$(document).on('click', '#russ', function(){
+					var language = '{"select":"Выберите пол","sex1":"Парень", "sex2":"Девушка", "one" : "Вы выбрали мужской пол. Выберите пол собеседника.", "two" : "Вы выбрали женский пол. Выберите пол собеседника.", "start" : "Поиск собеседника", "online":"Пользователей онлайн:", "nav": "Чат", "send": "Отправить", "data":"Сообщение..."}';
+					window.lang = JSON.parse(language);
+					$('#text').text(lang.select);
+					$('#boy1').text(lang.sex1);
+					$('#boy2').text(lang.sex1);
+					$('#data').text(lang.data);
+					$('#girl1').text(lang.sex2);
+					$('#girl2').text(lang.sex2);
+					$('#nav').text(lang.nav);
+					$('#sendtext').text(lang.send);
+					$('#online').text(lang.online);
+					$('#girl1').show(0);
+					$('#boy1').show(0);
+					$('#eng').hide(0);
+					$('#russ').hide(0);
+				});  
 				$(document).on('click', '#boy1', function(){
-					$('#text').text('Вы выбрали себе мужской пол. Выберите пол собеседника');
+					$('#text').text(lang.one);
 					$('#girl2').show(0);
 					$('#boy2').show(0);
 					$('#girl1').hide(0);
-					sex = 'Парень';
-					client = 'boy';
+					sex = 'M';
 					$('#boy1').hide(0);
 				});  
-				$(document).on('click', '#eng', function(){
-					var language = '{"select":"Select sex","sex1":"Boy", "sex2":"Girl"}';
-					var lang = JSON.parse(language);
-					$('#text').text(lang.select);
-					$('#sexlang1').text(lang.sex1);
-					$('#sexlang2').text(lang.sex2);
-				});  
-				
 				$(document).on('click', '#girl1', function(){
-					$('#text').text('Вы выбрали себе женский пол. Выберите пол собеседника');
+					$('#text').text(lang.two);
 					$('#girl2').show(0);
 					$('#boy2').show(0);
 					$('#girl1').hide(0);
-					client = 'girl';
-					sex = 'Девушка';
+					sex = 'F';
 					$('#boy1').hide(0);
 					
 				}); 
 				
 				$(document).on('click', '#boy2', function(){
-					$('#text').text('Поиск собеседника мужского пола...');
+					$('#text').text(lang.start);
 					$('#girl2').hide(0);
 					$('#boy2').hide(0);
+					looking_sex = 'M';
 					$('#output').show(0);
-					socket.send(JSON.stringify({"box" : 1}));
 				});  
 				$(document).on('click', '#girl2', function(){
-					$('#text').text('Поиск собеседника женского пола...');
+					$('#text').text(lang.start);
 					$('#girl2').hide(0);
 					$('#boy2').hide(0);
 					$('#output').show(0);
-					socket.send(JSON.stringify({"box" : 2}));
+					looking_sex = 'F';
+					
+					
+					}); 
+				$(document).on('click', '#searching', function(){
+					setup();
 					
 					
 				}); 
@@ -138,7 +171,7 @@
 					// Note: You have to change the host var 
 					// if your client runs on a different machine than the websocket server
 					
-					var host = "ws://localhost:9090/ws";
+					var host = "ws://localhost:80/ws";
 					var socket = new WebSocket(host);
 					// console.log("socket status: " + socket.readyState);   
 					
@@ -157,7 +190,7 @@
 						if(text == ""){
 							return;
 						}	  
-						socket.send(JSON.stringify({'sex': sex, 'message': text, 'id' : client.id, 'roomn' : client.roomn}));
+						socket.send(JSON.stringify({'message': text}));
 						$txt.val("");    
 					});
 					
@@ -171,7 +204,7 @@
 					if(socket){
 						
 						socket.onopen = function(){
-							socket.send(JSON.stringify({'init' : 1,'sex' : sex}));
+							socket.send(JSON.stringify({"sex": sex, "looking_sex": looking_sex, "language": "ru", "message": "init"} ));
 						}
 						socket.onerror = function(error) {
 							console.log("Ошибка " + error.message);
@@ -199,26 +232,13 @@
 						var p = document.createElement('p');
 						client = JSON.parse(txt);
 						console.log(client.message);
-						if(client.users_amount !== undefined) {
-							$('#users_amount').text(client.users_amount + 21);
-						}
-						
-						if(client.system !== undefined){
-							$('#output').append("<br /><h6><span class='label label-info'>Добро пожаловать в чат!</span></h6> <br />");
-						}
-						
-						if(client.id !== undefined){
-							$('#output').append("ID: " + client.id + "<br />");
-						}
+
 						if(client.message !== undefined) {
-							if(client.sex !== undefined) {
-								$('#output').append("<span class='label label-primary'> " + client.sex + "</span> · " + client.message + "<br />");
-								
-								
-							}
-							
-							
-							
+								$('#output').append("<span class='label label-primary'> " + sex + "</span> · " + client.message + "<br />");
+						}
+						
+						if(client.online !== undefined) {
+								$('#users_amount').text(client.online);
 						}
 					}	
 					
@@ -231,4 +251,4 @@
 		
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>																				
+	<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>																							
