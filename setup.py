@@ -5,11 +5,12 @@ from setuptools import setup
 # Uncomment one or more lines below in the install_requires section
 # for the specific client drivers/modules your application needs.
 packages = ['tornado',
+            'singledispatch',
            ]
 
-setup(name='YourAppName', version='1.0',
-      description='OpenShift Python-3.3 / Tornado Web Server based application',
-      author='Your Name', author_email='admin@example.org',
-      url='https://pypi.python.org/pypi',
+setup(name='anonymous web chat', version='1.0',
+      description='chat with people whose you do not know',
+      author='Davidenko Konstantyn', author_email='kostya_ya@mail.ru',
+      url='kostya_ya@mail.ru',
       install_requires=packages,
      )

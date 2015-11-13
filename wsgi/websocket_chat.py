@@ -75,6 +75,11 @@ class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("templates\\client.html")
 
+class IndexHandlerTest(tornado.web.RequestHandler):
+    @tornado.web.asynchronous
+    def get(self):
+        self.render("templates\\test.html")
+
 
 class WSHandler(tornado.websocket.WebSocketHandler):
 
@@ -154,6 +159,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
 handlers = [
     (r'/', IndexHandler),
+    (r'/test', IndexHandlerTest),
     (r'/ws', WSHandler),
 ]
 
