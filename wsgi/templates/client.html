@@ -3,252 +3,338 @@
 		<title>Chat v0.3 ALPHA</title>  
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="static/site.css">
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=2">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 	</head>
 	<body>
-		<center><hr>
-			<p id="text"></p><br>
-			
-			<div id="send">
+		<center><hr>		<div id="send">
 				
 				<div class="form-group">
-					<label class="col-sm-4 control-label"></label>
 					
 					<div id='br'>
-						<br>
-						<div id="sex1">
-							</div><div class="btn-group" role="group" aria-label="Basic example">
+						<p id="text"></p>
+						<div class="btn-group" role="group" aria-label="Basic example">
 							<button type="button" id="boy1"class="btn btn-secondary"><div id="sexlang1">Мужской</div></button>
 							<button type="button" id="girl1" class="btn btn-secondary"><div id="sexlang2">Женский</div></button>
 						</div>
-						<button type="button" id="russ"class="btn btn-secondary">Русский</button>
-						<button type="button" id="eng" class="btn btn-secondary">English</button>
-						
-						<style>
-							#output {
-							position: relative;
-							}
-						</style>
+						<img src="http://i.imgur.com/XbySytl.jpg" id="az"alt="Azerbaijan Language" height="120" width="115">
+						<img src="http://i.imgur.com/Sip7rDV.png" id="eng"alt="English Language" height="120" width="115">
+						<img src="http://i.imgur.com/m7eaUWb.jpg" id="russ"alt="Russian Language" height="120" width="115">
 						
 						
-						<button type="button" id="boy2"class="btn btn-secondary"><div id="sexlang1">Мужской</div></button>
-						<button type="button" id="girl2" class="btn btn-secondary"><div id="sexlang2">Женский</div></button>
-						<button type="button" id="searching" class="btn btn-secondary"><div>Начать поиск</div></button>
-					</div><br><br>
+					</center>
 					
-					
+					<center>
+						<div class="btn-group" role="group" aria-label="Basic example">
+							<button type="button" id="boy2"class="btn btn-secondary"><div id="sexlang1">Мужской</div></button>
+							<button type="button" id="girl2" class="btn btn-secondary"><div id="sexlang2">Женский</div></button>
+						</div>
+					</div>
+					<ul id="output" class="message" ></ul>
 				</div>
-				<div data-spy="scroll" data-target="#output" id="output"></div>
 				<nav class="navbar navbar-fixed-bottom navbar-light bg-faded">
 					<a id="nav"class="navbar-brand" href="#">Навигация</a>
-					<ul class="nav navbar-nav">
-						<li class="nav-item active">
-							<a class="nav-link"><span id="online">Пользователей онлайн: </span><span id='users_amount'>0</span> <span class="sr-only">(current)</span></a>
-						</li>
-					</ul>
-					
-					<div class="form-inline navbar-form">
-						<input type="text" class="form-control" placeholder="Сообщение.."id="data" size="80"/>
-						<button type="button" id="sendtext" class="btn btn-primary-outline">Отправить</button>
+					<div id="navbaractive">
+						<ul class="nav navbar-nav">
+							<li class="nav-item active">
+								<a class="nav-link"><span id="online">Пользователей онлайн: </span><span id='users_amount'>0</span> <span class="sr-only">(current)</span></a>
+							</li>
+						</ul>
 						
+						<div class="form-inline navbar-form">
+							<div class="input-group">
+								<input type="text" id="data" class="form-control" size="50" placeholder="Сообщение...">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button" id="sendtext">Отправить</button>
+									
+								</span>
+							</div>
+							
+						</div>
 					</div>
 				</nav>
-				<br><br><br><br>
-				
-				<p><strong>By #CanVeeD | 2015</strong></p>
-				
-			</body>
-		</html>
-		
-		<script>
+			</div>
+			<br><br><br><br>
 			
-			jQuery(function($){
+			<p><strong>By #CanVeeD | 2015</strong></p>
+			
+		</body>
+	</html>
+	
+	<script>
+		
+		jQuery(function($){
+			
+			
+			
+			if (!("WebSocket" in window)) {
+				alert("Ваш браузер не поддерживает чат");
+				}else{
+			}
+			
+			
+			$(document).ready( function(){
 				
+				$('#text').text('');
+				$('#output').hide(0);
+				id = 0
+				$('#girl2').hide(0);
+				$('#boy2').hide(0);
+				$('#boy1').hide(0);
+				$('#girl1').hide(0);
+				var d = new Date();
+				time = d.getTime();
+				$('#navbaractive').hide(0);
 				
-				
-				if (!("WebSocket" in window)) {
-					alert("Ваш браузер не поддерживает чат");
-					}else{
-				}
-				
-				
-				$(document).ready( function(){
-					
-					
-					
-					$('#text').text('');
-					$('#output').hide(0);
-					id = 0
-					$('#girl2').hide(0);
-					$('#boy2').hide(0);
-					$('#boy1').hide(0);
-					$('#girl1').hide(0);
-					
-					
-				});
-				
-				
-				$(document).on('click', '#eng', function(){
-					var language = '{"select":"Select sex","sex1":"Male", "sex2":"Female", "one" : "You have chosen the male sex. Choose a sex speaker.", "two" : "You have chosen a female. Choose a floor speaker.", "start" : "Searching companion", "online": "Online:", "nav": "Chat", "send": "Send", "data": "Message..."}';
-					window.lang = JSON.parse(language);
-					$('#text').text(lang.select);
-					$('#girl1').show(0);
-					$('#boy1').show(0);
-					$('#eng').hide(0);
-					$('#russ').hide(0);
-					
-					$('#boy1').text(lang.sex1);
-					$('#nav').text(lang.nav);
-					$('#data').text(lang.data);
-					$('#sendtext').text(lang.send);
-					$('#online').text(lang.online);
-					$('#boy2').text(lang.sex1);
-					$('#girl1').text(lang.sex2);
-					$('#girl2').text(lang.sex2);
-				});  
-				$(document).on('click', '#russ', function(){
-					var language = '{"select":"Выберите пол","sex1":"Парень", "sex2":"Девушка", "one" : "Вы выбрали мужской пол. Выберите пол собеседника.", "two" : "Вы выбрали женский пол. Выберите пол собеседника.", "start" : "Поиск собеседника", "online":"Пользователей онлайн:", "nav": "Чат", "send": "Отправить", "data":"Сообщение..."}';
-					window.lang = JSON.parse(language);
-					$('#text').text(lang.select);
-					$('#boy1').text(lang.sex1);
-					$('#boy2').text(lang.sex1);
-					$('#data').text(lang.data);
-					$('#girl1').text(lang.sex2);
-					$('#girl2').text(lang.sex2);
-					$('#nav').text(lang.nav);
-					$('#sendtext').text(lang.send);
-					$('#online').text(lang.online);
-					$('#girl1').show(0);
-					$('#boy1').show(0);
-					$('#eng').hide(0);
-					$('#russ').hide(0);
-				});  
-				$(document).on('click', '#boy1', function(){
-					$('#text').text(lang.one);
-					$('#girl2').show(0);
-					$('#boy2').show(0);
-					$('#girl1').hide(0);
-					sex = 'M';
-					$('#boy1').hide(0);
-				});  
-				$(document).on('click', '#girl1', function(){
-					$('#text').text(lang.two);
-					$('#girl2').show(0);
-					$('#boy2').show(0);
-					$('#girl1').hide(0);
-					sex = 'F';
-					$('#boy1').hide(0);
-					
-				}); 
-				
-				$(document).on('click', '#boy2', function(){
-					$('#text').text(lang.start);
-					$('#girl2').hide(0);
-					$('#boy2').hide(0);
-					looking_sex = 'M';
-					$('#output').show(0);
-				});  
-				$(document).on('click', '#girl2', function(){
-					$('#text').text(lang.start);
-					$('#girl2').hide(0);
-					$('#boy2').hide(0);
-					$('#output').show(0);
-					looking_sex = 'F';
-					
-					
-					}); 
-				$(document).on('click', '#searching', function(){
-					setup();
-					
-					
-				}); 
-				
-				
-				function setup(){
-					
-					// Note: You have to change the host var 
-					// if your client runs on a different machine than the websocket server
-					
-					var host = "ws://localhost:80/ws";
-					var socket = new WebSocket(host);
-					// console.log("socket status: " + socket.readyState);   
-					
-					var $txt = $("#data");
-					var $btnSend = $("#sendtext");
-					
-					$txt.focus();
-					
-					// event handlers for UI
-					$("button").click(function(){
-						$("#output").scrollTop(20);
-					});
-					
-					$btnSend.on('click',function(){
-						var text = $txt.val();
-						if(text == ""){
-							return;
-						}	  
-						socket.send(JSON.stringify({'message': text}));
-						$txt.val("");    
-					});
-					
-					$txt.keypress(function(evt){
-						if(evt.which == 13){
-							$btnSend.click();
-						}
-					});
-					
-					// event handlers for websocket
-					if(socket){
-						
-						socket.onopen = function(){
-							socket.send(JSON.stringify({"sex": sex, "looking_sex": looking_sex, "language": "ru", "message": "init"} ));
-						}
-						socket.onerror = function(error) {
-							console.log("Ошибка " + error.message);
-						};
-						
-						
-						
-						
-						
-						socket.onmessage = function(msg){
-							showServerResponse(msg.data);
-							
-							
-						}
-						socket.onclose = function(){
-							//alert("connection closed....");
-							showServerResponse("<strong>< SYSTEM ></strong> Соеденение разорвано.");
-						}
-						
-						}else{
-						console.log("Ошибка в сокетах, экватор приближается");
-					}
-					
-					function showServerResponse(txt){
-						var p = document.createElement('p');
-						client = JSON.parse(txt);
-						console.log(client.message);
-
-						if(client.message !== undefined) {
-								$('#output').append("<span class='label label-primary'> " + sex + "</span> · " + client.message + "<br />");
-						}
-						
-						if(client.online !== undefined) {
-								$('#users_amount').text(client.online);
-						}
-					}	
-					
-					
-				}
 				
 			});
+
 			
-		</script>
+			$(document).on('click', '#eng', function(){
+				var language = {
+        "select": "Select sex",
+        "sex1": "Male",
+        "sex2": "Female",
+        "one" : "You have chosen the male sex. Choose a sex speaker.",
+        "two" : "You have chosen a female. Choose a floor speaker.",
+        "start" : "Searching companion",
+        "online": "Online:",
+        "nav": "Chat",
+        "send": "Send",
+        "data": "Message...",
+        "succconn": "The interviewee is found, lots of fun!",
+        "errconn": "Interviewee disconected"
+};
+                               
+window.lang = language;
+				$('#text').text(lang.select);
+				$('#girl1').show(0);
+				$('#boy1').show(0);
+				$('#eng').hide(0);
+				$('#russ').hide(0);
+				
+				$('#boy1').text(lang.sex1);
+				$('#nav').text(lang.nav);
+				$('#data').text(lang.data);
+				$('#sendtext').text(lang.send);
+				$('#online').text(lang.online);
+				$('#boy2').text(lang.sex1);
+				$('#girl1').text(lang.sex2);
+				$('#girl2').text(lang.sex2);
+				$('#az').hide(0);
+			});  
+			$(document).on('click', '#az', function(){
+			var language = {
+        "select": "Select sex",
+        "sex1": "Male",
+        "sex2": "Female",
+        "one" : "You have chosen the male sex. Choose a sex speaker.",
+        "two" : "You have chosen a female. Choose a sex speaker.",
+        "start" : "Searching companion",
+        "online": "Online:",
+        "nav": "Navigation",
+        "send": "Send",
+        "data": "Message...",
+        "succconn": "The interviewee is found, lots of fun!",
+        "errconn": "Interviewee disconected"
+};
+                               
+window.lang = language;
+				$('#text').text(lang.select);
+				$('#girl1').show(0);
+				$('#boy1').show(0);
+				$('#eng').hide(0);
+				$('#russ').hide(0);
+				$('#az').hide(0);
+				
+				$('#boy1').text(lang.sex1);
+				$('#nav').text(lang.nav);
+				$('#data').text(lang.data);
+				$('#sendtext').text(lang.send);
+				$('#online').text(lang.online);
+				$('#boy2').text(lang.sex1);
+				$('#girl1').text(lang.sex2);
+				$('#girl2').text(lang.sex2);
+			});  
+			$(document).on('click', '#russ', function(){
+				var language = {
+        "select": "Выберите пол",
+        "sex1": "Парень",
+        "sex2": "Девушка",
+        "one" : "Вы выбрали мужской пол. Выберите пол собеседника.",
+        "two" : "Вы выбрали женский пол. Выберите пол собеседника",
+        "start" : "Поиск собеседника",
+        "online": "Пользователей онлайн:",
+        "nav": "Навигация",
+        "send": "Отправить",
+        "data": "Сообщение...",
+        "succconn": "Собеседник найден, приятного общения!",
+        "errconn": "Собеседник отключился"
+};
+                               
+window.lang = language;
+				$('#text').text(lang.select);
+				$('#boy1').text(lang.sex1);
+				$('#boy2').text(lang.sex1);
+				$('#data').text(lang.data);
+				$('#girl1').text(lang.sex2);
+				$('#girl2').text(lang.sex2);
+				$('#nav').text(lang.nav);
+				$('#sendtext').text(lang.send);
+				$('#online').text(lang.online);
+				$('#girl1').show(0);
+				$('#boy1').show(0);
+				$('#eng').hide(0);
+				$('#russ').hide(0);
+				$('#az').hide(0);
+			});  
+			$(document).on('click', '#boy1', function(){
+				$('#text').text(lang.one);
+				$('#girl2').show(0);
+				$('#boy2').show(0);
+				$('#girl1').hide(0);
+				sex = 'M';
+				$('#boy1').hide(0);
+			});  
+			$(document).on('click', '#girl1', function(){
+				$('#text').text(lang.two);
+				$('#girl2').show(0);
+				$('#boy2').show(0);
+				$('#girl1').hide(0);
+				sex = 'F';
+				$('#boy1').hide(0);
+				
+			}); 
+			
+			$(document).on('click', '#boy2', function(){
+				$('#text').text(lang.start);
+				$('#girl2').hide(0);
+				$('#boy2').hide(0);
+				looking_sex = 'M';
+				$('#output').show(0);
+				
+				setup();
+			});  
+			$(document).on('click', '#girl2', function(){
+				$('#text').text(lang.start);
+				$('#girl2').hide(0);
+				$('#boy2').hide(0);
+				$('#output').show(0);
+				looking_sex = 'F';
+				setup();
+			}); 
+			
+			
+			function setup(){
+				
+				// Note: You have to change the host var 
+				// if your client runs on a different machine than the websocket server
+				
+				var host = "ws://185.80.174.31:85/ws";
+				var socket = new WebSocket(host);
+				console.log("Статус соеденения: " + socket.readyState);   
+				
+				var $txt = $("#data");
+				var $btnSend = $("#sendtext");
+				
+				$txt.focus();
+				
+				// event handlers for UI
+				
+				
+				$btnSend.on('click',function(){
+					var text = $txt.val();
+					if(text == ""){
+						return;
+					}	  
+					socket.send(JSON.stringify({'message': text, 'time': time}));
+					$txt.val("");    
+				});
+				
+				$txt.keypress(function(evt){
+					if(evt.which == 13){
+						$btnSend.click();
+					}
+				});
+				
+				// event handlers for websocket
+				if(socket){
+					
+					socket.onopen = function(){
+						socket.send(JSON.stringify({"sex": sex, "looking_sex": looking_sex, "language": "ru", "message": "init"} ));
+					}
+					socket.onerror = function(error) {
+						console.log("Ошибка " + error.message);
+					};
+					
+					
+					
+					
+					
+					socket.onmessage = function(msg){
+						showServerResponse(msg.data);
+						
+						
+					}
+					socket.onclose = function(){
+						//alert("connection closed....");
+						showServerResponse("<strong>< SYSTEM ></strong> Соеденение разорвано.");
+					}
+					
+					}else{
+					console.log("Ошибка в сокетах, экватор приближается");
+				}
+				
+				function showServerResponse(txt){
+					client = JSON.parse(txt);
+					console.log(client.message);
+					if(client.connection !== undefined) {
+						$('#output').append("<br><br><span class='label label-primary'> " + lang.succconn + "</span><br><br>");
+						partnerready();
+					}
+					if(client.message !== undefined) {
+						if(client.time == time){
+							
+							message = client.message;
+							message = message.replace(/:\)|:-\)|=\)/g, '<img src="http://slangit.com/images/shortcuts/twitch/admins/4head.png" id="russ"alt="Russian Language">');
+							$('#output').append("<li class='my'>" + message + "</li>");
+							window.scrollBy(0,25)
+							
+							} else {
+							
+							message = client.message;
+							message = message.replace(/:\)|:-\)|=\)/g, '<img src="http://slangit.com/images/shortcuts/twitch/admins/4head.png" id="russ"alt="Russian Language">');
+							$('#output').append("<li>" + message + "</li>");
+							window.scrollBy(0,25)
+						}
+					}
+					
+					if(client.online !== undefined) {
+						$('#users_amount').text( client.online);
+					}
+					
+					if(client.connected == "false"){
+						$('#navbaractive').hide(0);
+						$('#output').append("<br><br><span class='label label-primary'>" + lang.errconn + "</span><br><br>");
+					}
+					
+					
+					
+					function partnerready(){
+						$('#navbaractive').show(0);
+					$('#br').hide(0);
+					}
+					
+					
+				}
+				
+			}
+		});
 		
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>																							
+	</script>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>																													

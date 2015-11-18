@@ -1,0 +1,10 @@
+.my{
+	padding-left: 130px;
+	color: 666;
+	}
+#output{
+	margin: 0 auto;
+	list-style: none; 
+	width: 400px; 
+	word-break: break-word;
+	}
