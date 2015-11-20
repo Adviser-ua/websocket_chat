@@ -86,6 +86,11 @@ class IndexHandler(tornado.web.RequestHandler):
             uri = '/ws'
             self.render("templates/client.html", **{'host': host, 'port': port, 'uri': uri})
 
+    def post(self, *args, **kwargs):
+        data = dict()
+        data['online'] = len(Static.connections)
+        response = json.dumps(data)
+        self.write(response)
 
 class IndexHandlerTest(tornado.web.RequestHandler):
     @tornado.web.asynchronous
@@ -131,7 +136,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
                 room.add_client(self)
                 self.room = room
         elif data.get('message').lower() == 'get_online':
-            self.__get_online__()
+            self.__send_message__(dict())
         else:
             self.__send_message__(data)
 
@@ -157,11 +162,6 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             except WebSocketClosedError:
                 print('socket closed')
 
-    def __get_online__(self):
-        data = dict()
-        data['online'] = len(Static.connections)
-        self.__send_message__(data)
-
     def __find_pair__(self):
         for conn in Static.connections:
             if conn != self and not conn.room.full:
@@ -184,6 +184,7 @@ handlers = [
     (r'/', IndexHandler),
     (r'/test', IndexHandlerTest),
     (r'/ws', WSHandler),
+    (r'/get_online', IndexHandler)
 ]
 
 app = tornado.web.Application(handlers)
