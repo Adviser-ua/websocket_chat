@@ -1,244 +1,382 @@
-<!DOCTYPE html>
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>http://37.26.31.169:85/</title><link rel="stylesheet" type="text/css" href="http%20_37.26.31.169%2085__files/viewsource.css"></head><body contextmenu="actions" id="viewsource" class="highlight" style="-moz-tab-size: 4"><pre id="line1"><span></span><span title="Start tag seen without seeing a doctype first. Expected “&lt;!DOCTYPE html&gt;”." class="error">&lt;<span class="start-tag">html</span>&gt;</span><span>
-<span id="line2"></span></span><span>&lt;<span class="start-tag">head</span>&gt;</span><span>
-<span id="line3"></span></span><span>&lt;<span class="start-tag">title</span>&gt;</span><span>Chat v0.3 ALPHA</span><span>&lt;/<span class="end-tag">title</span>&gt;</span><span>
-<span id="line4"></span></span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>="<a href="view-source:http://code.jquery.com/jquery-1.9.1.min.js" class="attribute-value">http://code.jquery.com/jquery-1.9.1.min.js</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
-<span id="line5"></span></span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">rel</span>="<a class="attribute-value">stylesheet</a>" <span class="attribute-name">href</span>="<a href="view-source:https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" class="attribute-value">https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css</a>"&gt;</span><span>
-<span id="line6"></span></span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">charset</span>="<a class="attribute-value">utf-8</a>"&gt;</span><span>
-<span id="line7"></span></span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">viewport</a>" <span class="attribute-name">content</span>="<a class="attribute-value">width=device-width, initial-scale=1</a>"&gt;</span><span>
-<span id="line8"></span></span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">http-equiv</span>="<a class="attribute-value">x-ua-compatible</a>" <span class="attribute-name">content</span>="<a class="attribute-value">ie=edge</a>"&gt;</span><span>
-<span id="line9"></span></span><span>&lt;/<span class="end-tag">head</span>&gt;</span><span>
-<span id="line10"></span></span><span>&lt;<span class="start-tag">body</span>&gt;</span><span>
-<span id="line11"></span></span><span>&lt;<span class="start-tag">center</span>&gt;</span><span></span><span>&lt;<span class="start-tag">hr</span>&gt;</span><span>
-<span id="line12"></span></span><span>&lt;<span class="start-tag">p</span> <span class="attribute-name">id</span>="<a class="attribute-value">text</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">p</span>&gt;</span><span></span><span>&lt;<span class="start-tag">br</span>&gt;</span><span>
-<span id="line13"></span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">send</a>"&gt;</span><span>
-<span id="line14"></span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">class</span>="<a class="attribute-value">form-group</a>"&gt;</span><span>
-<span id="line15"></span></span><span>&lt;<span class="start-tag">label</span> <span class="attribute-name">class</span>="<a class="attribute-value">col-sm-4 control-label</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">label</span>&gt;</span><span>
-<span id="line16"></span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>='<a class="attribute-value">br</a>'&gt;</span><span>
-<span id="line17"></span></span><span>&lt;<span class="start-tag">br</span>&gt;</span><span>
-<span id="line18"></span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">sex1</a>"&gt;</span><span>
-<span id="line19"></span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">class</span>="<a class="attribute-value">btn-group</a>" <span class="attribute-name">role</span>="<a class="attribute-value">group</a>" <span class="attribute-name">aria-label</span>="<a class="attribute-value">Basic example</a>"&gt;</span><span>
-<span id="line20"></span></span><span title="No space between attributes." class="error">&lt;<span class="start-tag">button</span> <span class="attribute-name">type</span>="<a class="attribute-value">button</a>" <span class="attribute-name">id</span>="<a class="attribute-value">boy1</a>"<span class="attribute-name">class</span>="<a class="attribute-value">btn btn-secondary</a>"&gt;</span><span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">sexlang1</a>"&gt;</span><span>Мужской</span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span></span><span>&lt;/<span class="end-tag">button</span>&gt;</span><span>
-<span id="line21"></span></span><span>&lt;<span class="start-tag">button</span> <span class="attribute-name">type</span>="<a class="attribute-value">button</a>" <span class="attribute-name">id</span>="<a class="attribute-value">girl1</a>" <span class="attribute-name">class</span>="<a class="attribute-value">btn btn-secondary</a>"&gt;</span><span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">sexlang2</a>"&gt;</span><span>Женский</span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span></span><span>&lt;/<span class="end-tag">button</span>&gt;</span><span>
-<span id="line22"></span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
-<span id="line23"></span></span><span title="No space between attributes." class="error">&lt;<span class="start-tag">img</span> <span class="attribute-name">src</span>="<a href="view-source:http://i.imgur.com/XbySytl.jpg" class="attribute-value">http://i.imgur.com/XbySytl.jpg</a>" <span class="attribute-name">id</span>="<a class="attribute-value">az</a>"<span class="attribute-name">alt</span>="<a class="attribute-value">Smiley face</a>" <span class="attribute-name">height</span>="<a class="attribute-value">120</a>" <span class="attribute-name">width</span>="<a class="attribute-value">115</a>"&gt;</span><span>
-<span id="line24"></span></span><span title="No space between attributes." class="error">&lt;<span class="start-tag">img</span> <span class="attribute-name">src</span>="<a href="view-source:http://i.imgur.com/Sip7rDV.png" class="attribute-value">http://i.imgur.com/Sip7rDV.png</a>" <span class="attribute-name">id</span>="<a class="attribute-value">eng</a>"<span class="attribute-name">alt</span>="<a class="attribute-value">Smiley face</a>" <span class="attribute-name">height</span>="<a class="attribute-value">120</a>" <span class="attribute-name">width</span>="<a class="attribute-value">115</a>"&gt;</span><span>
-<span id="line25"></span></span><span title="No space between attributes." class="error">&lt;<span class="start-tag">img</span> <span class="attribute-name">src</span>="<a href="view-source:http://i.imgur.com/m7eaUWb.jpg" class="attribute-value">http://i.imgur.com/m7eaUWb.jpg</a>" <span class="attribute-name">id</span>="<a class="attribute-value">russ</a>"<span class="attribute-name">alt</span>="<a class="attribute-value">Smiley face</a>" <span class="attribute-name">height</span>="<a class="attribute-value">120</a>" <span class="attribute-name">width</span>="<a class="attribute-value">115</a>"&gt;</span><span>
-<span id="line26"></span></span><span title="No space between attributes." class="error">&lt;<span class="start-tag">button</span> <span class="attribute-name">type</span>="<a class="attribute-value">button</a>" <span class="attribute-name">id</span>="<a class="attribute-value">boy2</a>"<span class="attribute-name">class</span>="<a class="attribute-value">btn btn-secondary</a>"&gt;</span><span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">sexlang1</a>"&gt;</span><span>Мужской</span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span></span><span>&lt;/<span class="end-tag">button</span>&gt;</span><span>
-<span id="line27"></span></span><span>&lt;<span class="start-tag">button</span> <span class="attribute-name">type</span>="<a class="attribute-value">button</a>" <span class="attribute-name">id</span>="<a class="attribute-value">girl2</a>" <span class="attribute-name">class</span>="<a class="attribute-value">btn btn-secondary</a>"&gt;</span><span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">sexlang2</a>"&gt;</span><span>Женский</span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span></span><span>&lt;/<span class="end-tag">button</span>&gt;</span><span>
-<span id="line28"></span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span></span><span>&lt;<span class="start-tag">br</span>&gt;</span><span></span><span>&lt;<span class="start-tag">br</span>&gt;</span><span>
-<span id="line29"></span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
-<span id="line30"></span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">data-spy</span>="<a class="attribute-value">scroll</a>" <span class="attribute-name">data-target</span>="<a class="attribute-value">#output</a>" <span class="attribute-name">id</span>="<a class="attribute-value">output</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
-<span id="line31"></span></span><span>&lt;<span class="start-tag">nav</span> <span class="attribute-name">class</span>="<a class="attribute-value">navbar navbar-fixed-bottom navbar-light bg-faded</a>"&gt;</span><span>
-<span id="line32"></span></span><span title="No space between attributes." class="error">&lt;<span class="start-tag">a</span> <span class="attribute-name">id</span>="<a class="attribute-value">nav</a>"<span class="attribute-name">class</span>="<a class="attribute-value">navbar-brand</a>" <span class="attribute-name">href</span>="<a href="view-source:http://37.26.31.169:85/#" class="attribute-value">#</a>"&gt;</span><span>Навигация</span><span>&lt;/<span class="end-tag">a</span>&gt;</span><span>
-<span id="line33"></span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">navbaractive</a>"&gt;</span><span>
-<span id="line34"></span></span><span>&lt;<span class="start-tag">ul</span> <span class="attribute-name">class</span>="<a class="attribute-value">nav navbar-nav</a>"&gt;</span><span>
-<span id="line35"></span></span><span>&lt;<span class="start-tag">li</span> <span class="attribute-name">class</span>="<a class="attribute-value">nav-item active</a>"&gt;</span><span>
-<span id="line36"></span></span><span>&lt;<span class="start-tag">a</span> <span class="attribute-name">class</span>="<a class="attribute-value">nav-link</a>"&gt;</span><span></span><span>&lt;<span class="start-tag">span</span> <span class="attribute-name">id</span>="<a class="attribute-value">online</a>"&gt;</span><span>Пользователей онлайн: </span><span>&lt;/<span class="end-tag">span</span>&gt;</span><span></span><span>&lt;<span class="start-tag">span</span> <span class="attribute-name">id</span>='<a class="attribute-value">users_amount</a>'&gt;</span><span>0</span><span>&lt;/<span class="end-tag">span</span>&gt;</span><span> </span><span>&lt;<span class="start-tag">span</span> <span class="attribute-name">class</span>="<a class="attribute-value">sr-only</a>"&gt;</span><span>(current)</span><span>&lt;/<span class="end-tag">span</span>&gt;</span><span></span><span>&lt;/<span class="end-tag">a</span>&gt;</span><span>
-<span id="line37"></span></span><span>&lt;/<span class="end-tag">li</span>&gt;</span><span>
-<span id="line38"></span></span><span>&lt;/<span class="end-tag">ul</span>&gt;</span><span>
-<span id="line39"></span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">class</span>="<a class="attribute-value">form-inline navbar-form</a>"&gt;</span><span>
-<span id="line40"></span></span><span title="No space between attributes." class="error">&lt;<span class="start-tag">input</span> <span class="attribute-name">type</span>="<a class="attribute-value">text</a>" <span class="attribute-name">class</span>="<a class="attribute-value">form-control</a>" <span class="attribute-name">placeholder</span>="<a class="attribute-value">Сообщение..</a>"<span class="attribute-name">id</span>="<a class="attribute-value">data</a>" <span class="attribute-name">size</span>="<a class="attribute-value">80</a>"<span>/</span>&gt;</span><span>
-<span id="line41"></span></span><span>&lt;<span class="start-tag">button</span> <span class="attribute-name">type</span>="<a class="attribute-value">button</a>" <span class="attribute-name">id</span>="<a class="attribute-value">sendtext</a>" <span class="attribute-name">class</span>="<a class="attribute-value">btn btn-primary-outline</a>"&gt;</span><span>Отправить</span><span>&lt;/<span class="end-tag">button</span>&gt;</span><span>
-<span id="line42"></span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
-<span id="line43"></span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
-<span id="line44"></span></span><span>&lt;/<span class="end-tag">nav</span>&gt;</span><span>
-<span id="line45"></span></span><span>&lt;<span class="start-tag">br</span>&gt;</span><span></span><span>&lt;<span class="start-tag">br</span>&gt;</span><span></span><span>&lt;<span class="start-tag">br</span>&gt;</span><span></span><span>&lt;<span class="start-tag">br</span>&gt;</span><span>
-<span id="line46"></span></span><span>&lt;<span class="start-tag">p</span>&gt;</span><span></span><span>&lt;<span class="start-tag">strong</span>&gt;</span><span>By #CanVeeD | 2015</span><span>&lt;/<span class="end-tag">strong</span>&gt;</span><span></span><span>&lt;/<span class="end-tag">p</span>&gt;</span><span>
-<span id="line47"></span></span><span title="End tag for “body” seen, but there were unclosed elements." class="error">&lt;/<span class="end-tag">body</span>&gt;</span><span>
-<span id="line48"></span></span><span>&lt;/<span class="end-tag">html</span>&gt;</span><span>
-<span id="line49"></span></span><span title="Stray start tag “script”." class="error">&lt;<span class="start-tag">script</span>&gt;</span><span>
-<span id="line50"></span>jQuery(function($){
-<span id="line51"></span>if (!("WebSocket" in window)) {
-<span id="line52"></span>alert("Ваш браузер не поддерживает чат");
-<span id="line53"></span>}else{
-<span id="line54"></span>}
-<span id="line55"></span>$(document).ready( function(){
-<span id="line56"></span>$('#text').text('');
-<span id="line57"></span>$('#output').hide(0);
-<span id="line58"></span>id = 0
-<span id="line59"></span>$('#girl2').hide(0);
-<span id="line60"></span>$('#boy2').hide(0);
-<span id="line61"></span>$('#boy1').hide(0);
-<span id="line62"></span>$('#girl1').hide(0);
-<span id="line63"></span>$('#navbaractive').hide(0);
-<span id="line64"></span>});
-<span id="line65"></span>$(document).on('click', '#eng', function(){
-<span id="line66"></span>var language = '{"select":"Select 
-sex","sex1":"Male", "sex2":"Female", "one" : "You have chosen the male 
-sex. Choose a sex speaker.", "two" : "You have chosen a female. Choose a
- floor speaker.", "start" : "Searching companion","online": 
-"Online:","nav": "Chat", "send": "Send", "data": "Message...", 
-"succconn":"The interviewee is found, lots of fun!", "errconn": 
-"Interviewee disconected"}';
-<span id="line67"></span>window.lang = JSON.parse(language);
-<span id="line68"></span>$('#text').text(lang.select);
-<span id="line69"></span>$('#girl1').show(0);
-<span id="line70"></span>$('#boy1').show(0);
-<span id="line71"></span>$('#eng').hide(0);
-<span id="line72"></span>$('#russ').hide(0);
-<span id="line73"></span>$('#boy1').text(lang.sex1);
-<span id="line74"></span>$('#nav').text(lang.nav);
-<span id="line75"></span>$('#data').text(lang.data);
-<span id="line76"></span>$('#sendtext').text(lang.send);
-<span id="line77"></span>$('#online').text(lang.online);
-<span id="line78"></span>$('#boy2').text(lang.sex1);
-<span id="line79"></span>$('#girl1').text(lang.sex2);
-<span id="line80"></span>$('#girl2').text(lang.sex2);
-<span id="line81"></span>$('#az').hide(0);
-<span id="line82"></span>});
-<span id="line83"></span>$(document).on('click', '#az', function(){
-<span id="line84"></span>var language = '{"select":"Select 
-sex","sex1":"Male","sex2":"Female", "one" : "You have chosen the male 
-sex. Choose a sex speaker.", "two" : "You have chosen a female. Choose a
- floor speaker.", "start" : "Searching companion","online": 
-"Online:","nav": "Chat", "send": "Send","data": "Message...", 
-"succconn":"The interviewee is found, lots of fun!", "errconn": 
-"Interviewee disconected" }';
-<span id="line85"></span>window.lang = JSON.parse(language);
-<span id="line86"></span>$('#text').text(lang.select);
-<span id="line87"></span>$('#girl1').show(0);
-<span id="line88"></span>$('#boy1').show(0);
-<span id="line89"></span>$('#eng').hide(0);
-<span id="line90"></span>$('#russ').hide(0);
-<span id="line91"></span>$('#az').hide(0);
-<span id="line92"></span>$('#boy1').text(lang.sex1);
-<span id="line93"></span>$('#nav').text(lang.nav);
-<span id="line94"></span>$('#data').text(lang.data);
-<span id="line95"></span>$('#sendtext').text(lang.send);
-<span id="line96"></span>$('#online').text(lang.online);
-<span id="line97"></span>$('#boy2').text(lang.sex1);
-<span id="line98"></span>$('#girl1').text(lang.sex2);
-<span id="line99"></span>$('#girl2').text(lang.sex2);
-<span id="line100"></span>});
-<span id="line101"></span>$(document).on('click', '#russ', function(){
-<span id="line102"></span>var language = '{"select":"Выберите 
-пол","sex1":"Парень", "sex2":"Девушка", "one" : "Вы выбрали мужской пол.
- Выберите пол собеседника.", "two" : "Вы выбрали женский пол. Выберите 
-пол собеседника.", "start" : "Поиск собеседника", 
-"online":"Пользователей онлайн:", "nav": "Чат", "send": "Отправить", 
-"data":"Сообщение...", "succconn":"Собеседник найден, приятного 
-общения!", "errconn": "Собеседник отключился"}';
-<span id="line103"></span>window.lang = JSON.parse(language);
-<span id="line104"></span>$('#text').text(lang.select);
-<span id="line105"></span>$('#boy1').text(lang.sex1);
-<span id="line106"></span>$('#boy2').text(lang.sex1);
-<span id="line107"></span>$('#data').text(lang.data);
-<span id="line108"></span>$('#girl1').text(lang.sex2);
-<span id="line109"></span>$('#girl2').text(lang.sex2);
-<span id="line110"></span>$('#nav').text(lang.nav);
-<span id="line111"></span>$('#sendtext').text(lang.send);
-<span id="line112"></span>$('#online').text(lang.online);
-<span id="line113"></span>$('#girl1').show(0);
-<span id="line114"></span>$('#boy1').show(0);
-<span id="line115"></span>$('#eng').hide(0);
-<span id="line116"></span>$('#russ').hide(0);
-<span id="line117"></span>$('#az').hide(0);
-<span id="line118"></span>});
-<span id="line119"></span>$(document).on('click', '#boy1', function(){
-<span id="line120"></span>$('#text').text(lang.one);
-<span id="line121"></span>$('#girl2').show(0);
-<span id="line122"></span>$('#boy2').show(0);
-<span id="line123"></span>$('#girl1').hide(0);
-<span id="line124"></span>sex = 'M';
-<span id="line125"></span>$('#boy1').hide(0);
-<span id="line126"></span>});
-<span id="line127"></span>$(document).on('click', '#girl1', function(){
-<span id="line128"></span>$('#text').text(lang.two);
-<span id="line129"></span>$('#girl2').show(0);
-<span id="line130"></span>$('#boy2').show(0);
-<span id="line131"></span>$('#girl1').hide(0);
-<span id="line132"></span>sex = 'F';
-<span id="line133"></span>$('#boy1').hide(0);
-<span id="line134"></span>});
-<span id="line135"></span>$(document).on('click', '#boy2', function(){
-<span id="line136"></span>$('#text').text(lang.start);
-<span id="line137"></span>$('#girl2').hide(0);
-<span id="line138"></span>$('#boy2').hide(0);
-<span id="line139"></span>looking_sex = 'M';
-<span id="line140"></span>$('#output').show(0);
-<span id="line141"></span>setup();
-<span id="line142"></span>});
-<span id="line143"></span>$(document).on('click', '#girl2', function(){
-<span id="line144"></span>$('#text').text(lang.start);
-<span id="line145"></span>$('#girl2').hide(0);
-<span id="line146"></span>$('#boy2').hide(0);
-<span id="line147"></span>$('#output').show(0);
-<span id="line148"></span>looking_sex = 'F';
-<span id="line149"></span>setup();
-<span id="line150"></span>});
-<span id="line151"></span>function setup(){
-<span id="line152"></span>// Note: You have to change the host var
-<span id="line153"></span>// if your client runs on a different machine than the websocket server
-<span id="line154"></span>var host = "ws://37.26.31.169:85/ws";
-<span id="line155"></span>var socket = new WebSocket(host);
-<span id="line156"></span>// console.log("socket status: " + socket.readyState);
-<span id="line157"></span>var $txt = $("#data");
-<span id="line158"></span>var $btnSend = $("#sendtext");
-<span id="line159"></span>$txt.focus();
-<span id="line160"></span>// event handlers for UI
-<span id="line161"></span>$btnSend.on('click',function(){
-<span id="line162"></span>var text = $txt.val();
-<span id="line163"></span>if(text == ""){
-<span id="line164"></span>return;
-<span id="line165"></span>}
-<span id="line166"></span>var d = new Date();
-<span id="line167"></span>time = d.getTime();
-<span id="line168"></span>socket.send(JSON.stringify({'message': text, 'time': time}));
-<span id="line169"></span>$txt.val("");
-<span id="line170"></span>});
-<span id="line171"></span>$txt.keypress(function(evt){
-<span id="line172"></span>if(evt.which == 13){
-<span id="line173"></span>$btnSend.click();
-<span id="line174"></span>}
-<span id="line175"></span>});
-<span id="line176"></span>// event handlers for websocket
-<span id="line177"></span>if(socket){
-<span id="line178"></span>socket.onopen = function(){
-<span id="line179"></span>socket.send(JSON.stringify({"sex": sex, "looking_sex": looking_sex, "language": "ru", "message": "init"} ));
-<span id="line180"></span>}
-<span id="line181"></span>socket.onerror = function(error) {
-<span id="line182"></span>console.log("Ошибка " + error.message);
-<span id="line183"></span>};
-<span id="line184"></span>socket.onmessage = function(msg){
-<span id="line185"></span>showServerResponse(msg.data);
-<span id="line186"></span>}
-<span id="line187"></span>socket.onclose = function(){
-<span id="line188"></span>//alert("connection closed....");
-<span id="line189"></span>showServerResponse("</span><span>&lt;s</span><span>trong&gt;</span><span>&lt; </span><span>SYSTEM &gt;</span><span>&lt;/<span>s</span>t</span><span>rong&gt; Соеденение разорвано.");
-<span id="line190"></span>}
-<span id="line191"></span>}else{
-<span id="line192"></span>console.log("Ошибка в сокетах, экватор приближается");
-<span id="line193"></span>}
-<span id="line194"></span>function showServerResponse(txt){
-<span id="line195"></span>var p = document.createElement('p');
-<span id="line196"></span>client = JSON.parse(txt);
-<span id="line197"></span>console.log(client.message);
-<span id="line198"></span>if(client.connection !== undefined) {
-<span id="line199"></span>$('#output').append("</span><span>&lt;b</span><span>r&gt;</span><span>&lt;b</span><span>r&gt;</span><span>&lt;s</span><span>pan class='label label-primary'&gt; " + lang.succconn + "</span><span>&lt;/<span>s</span>p</span><span>an&gt;</span><span>&lt;b</span><span>r&gt;</span><span>&lt;b</span><span>r&gt;");
-<span id="line200"></span>partnerready();
-<span id="line201"></span>}
-<span id="line202"></span>if(client.message !== undefined) {
-<span id="line203"></span>if(client.time == time){
-<span id="line204"></span>$('#output').css({'margin': 1}).append("</span><span>&lt;b</span><span>r&gt;</span><span>&lt;s</span><span>pan class='label label-default'&gt;" + client.message + "</span><span>&lt;/<span>s</span>p</span><span>an&gt;</span><span>&lt;b</span><span>r&gt;");
-<span id="line205"></span>} else {
-<span id="line206"></span>$('#output').css({'margin': 'auto'}).append("</span><span>&lt;b</span><span>r&gt;</span><span>&lt;s</span><span>pan class='label label-info'&gt;" + client.message + "</span><span>&lt;/<span>s</span>p</span><span>an&gt;</span><span>&lt;b</span><span>r&gt;");
-<span id="line207"></span>}
-<span id="line208"></span>}
-<span id="line209"></span>if(client.online !== undefined) {
-<span id="line210"></span>$('#users_amount').text( client.online);
-<span id="line211"></span>}
-<span id="line212"></span>if(client.connected == "false"){
-<span id="line213"></span>$('#navbaractive').hide(0);
-<span id="line214"></span>$('#output').append("</span><span>&lt;b</span><span>r&gt;</span><span>&lt;b</span><span>r&gt;</span><span>&lt;s</span><span>pan class='label label-primary'&gt;" + lang.errconn + "</span><span>&lt;/<span>s</span>p</span><span>an&gt;</span><span>&lt;b</span><span>r&gt;</span><span>&lt;b</span><span>r&gt;");
-<span id="line215"></span>}
-<span id="line216"></span>function partnerready(){
-<span id="line217"></span>$('#navbaractive').show(0);
-<span id="line218"></span>}
-<span id="line219"></span>}
-<span id="line220"></span>}
-<span id="line221"></span>});
-<span id="line222"></span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
-<span id="line223"></span></span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>="<a href="view-source:https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" class="attribute-value">https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
-<span id="line224"></span></span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>="<a href="view-source:https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" class="attribute-value">https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span> </span></pre><menu id="actions" type="context"><menuitem accesskey="L" label="Go to Line…" id="goToLine"></menuitem><menuitem type="checkbox" label="Wrap Long Lines" id="wrapLongLines"></menuitem><menuitem checked="true" type="checkbox" label="Syntax Highlighting" id="highlightSyntax"></menuitem></menu></body></html>
+<html>
+	<head>
+		<title>Chat v0.3 ALPHA</title>  
+		<style>
+			.my{
+			background: #E6FFF5; /* Цвет фона */
+			border: 1px solid #E6FFF5; /* Параметры рамки */
+			padding: 6px; /* Поля вокруг текста */
+			margin-bottom: 8px; /* Отступ снизу */
+			border-radius: 6px;
+			width:280px;
+			margin-left: 40px;
+			}
+			.your{
+			background: #AEFCDE; /* Цвет фона */
+			border: 1px solid #AEFCDE; /* Параметры рамки */
+			padding:6px; /* Поля вокруг текста */
+			margin-bottom: 8px; /* Отступ снизу */
+			border-radius: 6px;
+			width:280px;
+			}
+			#output{
+			margin: auto;
+			list-style: none; 
+			padding-bottom: 50px;
+			width: 350px; 
+			word-break: break-word;
+			}
+			.navbar-fixed-bottom {
+			transform: translateZ(0) !important;
+			-webkit-transform: translateZ(0) !important;    
+			}
+			
+			html, body {
+			height:100%; 
+			overflow:auto 
+			}
+		</style>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+		<meta name="viewport" content="initial-scale=1, maximum-scale=2">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+	</head>
+	
+	<body>
+		<center><hr>		<div id="send">
+			
+			<div class="form-group">
+				
+				<div id='br'>
+					<p id="text"></p>
+					<div class="btn-group" role="group" aria-label="Basic example">
+						<button type="button" id="boy1"class="btn btn-secondary"><div id="sexlang1">Мужской</div></button>
+						<button type="button" id="girl1" class="btn btn-secondary"><div id="sexlang2">Женский</div></button>
+					</div>
+					<img src="http://i.imgur.com/XbySytl.jpg" id="az"alt="Azerbaijan Language" height="120" width="115">
+					<img src="http://i.imgur.com/Sip7rDV.png" id="eng"alt="English Language" height="120" width="115">
+					<img src="http://i.imgur.com/m7eaUWb.jpg" id="russ"alt="Russian Language" height="120" width="115">
+					
+					
+				</center>
+				<ul id="output" class="message" ></ul>
+				<center>
+					
+					<div class="btn-group" role="group" aria-label="Basic example">
+						<button type="button" id="boy2"class="btn btn-secondary"><div id="sexlang1">Мужской</div></button>
+						<button type="button" id="girl2" class="btn btn-secondary"><div id="sexlang2">Женский</div></button>
+					</div>
+				</div>
+			</div>
+			
+			
+			<nav class="navbar navbar-fixed-bottom navbar-light bg-faded">
+				<a id="nav"class="navbar-brand" href="#">Навигация</a>
+				<div id="navbaractive">
+					<ul class="nav navbar-nav">
+						<li class="nav-item active">
+							<a class="nav-link"><span id="online">Пользователей онлайн: </span><span id='users_amount'>0</span> <span class="sr-only">(current)</span></a>
+						</li>
+					</ul>
+					
+					<div class="form-inline navbar-form">
+						<div class="input-group">
+							<input type="text" id="data" class="form-control" size="50" placeholder="Сообщение...">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button" id="sendtext">Отправить</button>
+								
+							</span>
+						</div>
+						
+					</div>
+				</div>
+			</nav>
+		</div>
+		
+		</body>
+	</html>
+	
+	
+	
+	
+	<script>
+		
+		jQuery(function($){
+			
+			
+			
+			if (!("WebSocket" in window)) {
+				alert("Ваш браузер не поддерживает чат");
+				}else{
+			}
+			
+			
+			$(document).ready( function(){
+				
+				$('#text').text('');
+				$('#output').hide(0);
+				id = 0
+				$('#girl2').hide(0);
+				$('#boy2').hide(0);
+				$('#boy1').hide(0);
+				$('#girl1').hide(0);
+				var d = new Date();
+				time = d.getTime();
+				$('#navbaractive').hide(0);
+				
+				
+			});
+			
+			
+			$(document).on('click', '#eng', function(){
+				var language = {
+					"select": "Select sex",
+					"sex1": "Male",
+					"sex2": "Female",
+					"one" : "You have chosen the male sex. Choose a sex speaker.",
+					"two" : "You have chosen a female. Choose a floor speaker.",
+					"start" : "Searching companion",
+					"online": "Online:",
+					"nav": "Chat",
+					"send": "Send",
+					"data": "Message...",
+					"succconn": "The interviewee is found, lots of fun!",
+					"errconn": "Interviewee disconected"
+				};
+				
+				window.lang = language;
+				$('#text').text(lang.select);
+				$('#girl1').show(0);
+				$('#boy1').show(0);
+				$('#eng').hide(0);
+				$('#russ').hide(0);
+				
+				$('#boy1').text(lang.sex1);
+				$('#nav').text(lang.nav);
+				$('#data').text(lang.data);
+				$('#sendtext').text(lang.send);
+				$('#online').text(lang.online);
+				$('#boy2').text(lang.sex1);
+				$('#girl1').text(lang.sex2);
+				$('#girl2').text(lang.sex2);
+				$('#az').hide(0);
+			});  
+			$(document).on('click', '#az', function(){
+				var language = {
+					"select": "Select sex",
+					"sex1": "Male",
+					"sex2": "Female",
+					"one" : "You have chosen the male sex. Choose a sex speaker.",
+					"two" : "You have chosen a female. Choose a sex speaker.",
+					"start" : "Searching companion",
+					"online": "Online:",
+					"nav": "Navigation",
+					"send": "Send",
+					"data": "Message...",
+					"succconn": "The interviewee is found, lots of fun!",
+					"errconn": "Interviewee disconected"
+				};
+				
+				window.lang = language;
+				$('#text').text(lang.select);
+				$('#girl1').show(0);
+				$('#boy1').show(0);
+				$('#eng').hide(0);
+				$('#russ').hide(0);
+				$('#az').hide(0);
+				
+				$('#boy1').text(lang.sex1);
+				$('#nav').text(lang.nav);
+				$('#data').text(lang.data);
+				$('#sendtext').text(lang.send);
+				$('#online').text(lang.online);
+				$('#boy2').text(lang.sex1);
+				$('#girl1').text(lang.sex2);
+				$('#girl2').text(lang.sex2);
+			});  
+			$(document).on('click', '#russ', function(){
+				var language = {
+					"select": "Выберите пол",
+					"sex1": "Парень",
+					"sex2": "Девушка",
+					"one" : "Вы выбрали мужской пол. Выберите пол собеседника.",
+					"two" : "Вы выбрали женский пол. Выберите пол собеседника",
+					"start" : "Поиск собеседника",
+					"online": "Пользователей онлайн:",
+					"nav": "Навигация",
+					"send": "Отправить",
+					"data": "Сообщение...",
+					"succconn": "Собеседник найден, приятного общения!",
+					"errconn": "Собеседник отключился"
+				};
+				
+				window.lang = language;
+				$('#text').text(lang.select);
+				$('#boy1').text(lang.sex1);
+				$('#boy2').text(lang.sex1);
+				$('#data').text(lang.data);
+				$('#girl1').text(lang.sex2);
+				$('#girl2').text(lang.sex2);
+				$('#nav').text(lang.nav);
+				$('#sendtext').text(lang.send);
+				$('#online').text(lang.online);
+				$('#girl1').show(0);
+				$('#boy1').show(0);
+				$('#eng').hide(0);
+				$('#russ').hide(0);
+				$('#az').hide(0);
+			});  
+			$(document).on('click', '#boy1', function(){
+				$('#text').text(lang.one);
+				$('#girl2').show(0);
+				$('#boy2').show(0);
+				$('#girl1').hide(0);
+				sex = 'M';
+				$('#boy1').hide(0);
+			});  
+			$(document).on('click', '#girl1', function(){
+				$('#text').text(lang.two);
+				$('#girl2').show(0);
+				$('#boy2').show(0);
+				$('#girl1').hide(0);
+				sex = 'F';
+				$('#boy1').hide(0);
+				
+			}); 
+			
+			$(document).on('click', '#boy2', function(){
+				$('#text').text(lang.start);
+				$('#girl2').hide(0);
+				$('#boy2').hide(0);
+				looking_sex = 'M';
+				$('#output').show(0);
+				
+				setup();
+			});  
+			$(document).on('click', '#girl2', function(){
+				$('#text').text(lang.start);
+				$('#girl2').hide(0);
+				$('#boy2').hide(0);
+				$('#output').show(0);
+				looking_sex = 'F';
+				setup();
+			}); 
+			
+			
+			function setup(){
+				
+				// Note: You have to change the host var 
+				// if your client runs on a different machine than the websocket server
+				
+				var socket = new WebSocket("ws://bechat.me:6543/ws");
+				console.log("Статус соеденения: " + socket.readyState);   
+				
+				var $txt = $("#data");
+				var $btnSend = $("#sendtext");
+				
+				$txt.focus();
+				
+				// event handlers for UI
+				
+				
+				$btnSend.on('click',function(){
+					var text = $txt.val();
+					if(text == ""){
+						return;
+					}	  
+					socket.send(JSON.stringify({'message': text, 'time': time}));
+					$txt.val("");    
+				});
+				
+				$txt.keypress(function(evt){
+					if(evt.which == 13){
+						$btnSend.click();
+					}
+				});
+				
+				// event handlers for websocket
+				if(socket){
+					
+					socket.onopen = function(){
+						socket.send(JSON.stringify({"sex": sex, "looking_sex": looking_sex, "language": "ru", "message": "init"} ));
+					}
+					socket.onerror = function(error) {
+						console.log("Ошибка " + error.message);
+					};
+					
+					
+					
+					
+					
+					socket.onmessage = function(msg){
+						showServerResponse(msg.data);
+						
+						
+					}
+					socket.onclose = function(){
+						//alert("connection closed....");
+						showServerResponse("<strong>< SYSTEM ></strong> Соеденение разорвано.");
+					}
+					
+					}else{
+					console.log("Ошибка в сокетах, экватор приближается");
+				}
+				
+				function showServerResponse(txt){
+					client = JSON.parse(txt);
+					console.log(client.message);
+					if(client.connection !== undefined) {
+						$('#output').append("<br><br><span class='label label-primary'> " + lang.succconn + "</span><br><br>");
+						partnerready();
+					}
+					if(client.message !== undefined && client.message !== " ") {
+						if(client.time == time){
+							message = client.message;
+							message = message.replace(/:\)|:-\)|=\)/g, '<img src="http://slangit.com/images/shortcuts/twitch/admins/4head.png" id="russ"alt="Russian Language">');
+							
+							
+							$('#output').append("<li class='my'>" + message + "</li>");
+							$("#output").animate({
+								scrollTop: $("#output").scrollHeight
+							}, 300);
+							} else {
+							
+							message = client.message;
+							message = message.replace(/:\)|:-\)|=\)/g, '<img src="http://slangit.com/images/shortcuts/twitch/admins/4head.png" id="russ"alt="Russian Language">');
+							$('#output').append("<li class='my'>" + message + "</li>");
+							$("#output").animate({
+								scrollTop: $("#output").scrollHeight
+							}, 300);
+						}
+					}
+					
+					if(client.online !== undefined) {
+						$('#users_amount').text( client.online);
+					}
+					
+					if(client.connected == "false"){
+						$('#navbaractive').hide(0);
+						$('#output').append("<br><br><span class='label label-primary'>" + lang.errconn + "</span><br><br>");
+					}
+					
+					
+					
+					function partnerready(){
+						$('#navbaractive').show(0);
+						$('#br').hide(0);
+					}
+					
+					
+					
+				}
+				
+			}
+		});
+		
+	</script>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>																													
