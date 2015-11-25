@@ -13,9 +13,10 @@ from tornado.websocket import WebSocketClosedError
 import json
 from tornado.options import define, options, parse_command_line
 import os
+from get_ip import get_lan_ip
 
 
-define("port", default=80, help="run on the given port", type=int)
+define("port", default=88, help="run on the given port", type=int)
 
 # we gonna store clients in dictionary..
 
@@ -81,7 +82,7 @@ class IndexHandler(tornado.web.RequestHandler):
             uri = '/ws'
             self.render("client.html", **{'host': host, 'port': port, 'uri': uri})
         except:
-            host = '0.0.0.0'
+            host = get_lan_ip()
             port = options.port
             uri = '/ws'
             self.render("templates/client.html", **{'host': host, 'port': port, 'uri': uri})
@@ -102,7 +103,7 @@ class IndexHandlerTest(tornado.web.RequestHandler):
             uri = '/ws'
             self.render("test.html", **{'host': host, 'port': port, 'uri': uri})
         except:
-            host = '0.0.0.0'
+            host = get_lan_ip()
             uri = '/ws'
             port = options.port
             self.render("templates/test.html", **{'host': host, 'port': port, 'uri': uri})
@@ -114,6 +115,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
     room = None
 
     def open(self):
+        print("connected")
         Static.connections.append(self)
 
     def on_message(self, message):
